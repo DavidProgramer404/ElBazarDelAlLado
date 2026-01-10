@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | El Bazar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-orange-50">
+
+    <nav class="bg-white shadow-sm p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-3xl font-black text-orange-600 tracking-tighter italic">EL BAZAR</span>
+            <div class="flex items-center gap-4">
+                <div class="space-x-4">
+                    <a href="../index.html">Inicio</a>
+                    <a href="productos.html">Menú</a>
+                </div>
+                <!-- Carrito de Compras -->
+                <button onclick="toggleCart()" class="cart-btn bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal del Carrito -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 hidden cart-modal">
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl cart-scroll">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Tu Carrito 🛒</h2>
+                    <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto">
+                    <div class="text-center py-8 text-gray-500">
+                        <i class="fas fa-shopping-basket text-4xl mb-4 text-gray-300"></i>
+                        <p>Tu carrito está vacío</p>
+                    </div>
+                </div>
+                <div class="border-t pt-4 mt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-bold text-gray-700">Total:</span>
+                        <span id="cart-total" class="text-2xl font-bold text-orange-600">$0</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-bold hover:bg-orange-700 transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="max-w-4xl mx-auto my-16 p-6 bg-white rounded-3xl shadow-xl flex flex-col md:flex-row overflow-hidden">
+        <!-- Formulario -->
+        <div class="p-8 flex-1">
+            <h2 class="text-3xl font-bold mb-6">Envíanos un mensaje</h2>
+            <form action="#" class="space-y-4">
+                <input type="text" placeholder="Tu nombre" class="w-full p-3 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="email" placeholder="Correo electrónico" class="w-full p-3 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-400">
+                <textarea placeholder="¿En qué podemos ayudarte?" class="w-full p-3 border border-gray-200 rounded-xl h-32 outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+                <button class="w-full bg-orange-600 text-white font-bold py-3 rounded-xl hover:bg-orange-700 transition">Enviar Pedido</button>
+            </form>
+        </div>
+
+        <!-- Info WhatsApp -->
+        <div class="bg-orange-600 p-8 text-white flex flex-col justify-center items-center text-center md:w-80">
+            <div class="bg-white/20 p-4 rounded-full mb-4">
+                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.73.44 3.35 1.21 4.77L2 22l5.33-1.31C8.71 21.5 10.3 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">Respuesta Rápida</h3>
+            <p class="mb-6 text-orange-100">Dinos qué se te antoja y te lo enviamos en minutos.</p>
+            <a href="wa.me" class="bg-white text-orange-600 font-bold px-6 py-3 rounded-full hover:bg-orange-50 transition">WhatsApp Directo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-gray-500">© 2026 El Bazar De Al Frente. Hecho con sabor.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

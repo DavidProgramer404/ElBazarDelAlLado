@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo Nuevo | El Bazar De Al Frente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-3xl font-black text-orange-600 tracking-tighter italic">EL BAZAR</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-6">
+                <div class="space-x-8 font-semibold text-gray-700">
+                    <a href="../index.html" class="hover:text-orange-500 transition">Inicio</a>
+                    <a href="./productos.html" class="hover:text-orange-500 transition">Menú</a>
+                    <a href="./nuevo.html" class="text-orange-600">Lo Nuevo</a>
+                    <a href="./contacto.html" class="hover:text-orange-500 transition">Contacto</a>
+                </div>
+                <!-- Carrito de Compras -->
+                <button onclick="toggleCart()" class="cart-btn bg-orange-100 p-3 rounded-full hover:bg-orange-200 transition">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+
+            <a href="./productos.html" class="bg-orange-600 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-700 transition hidden md:block">
+                Pedir Ahora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Modal del Carrito -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 hidden cart-modal">
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl cart-scroll">
+            <div class="p-6 h-full flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Tu Carrito 🛒</h2>
+                    <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto">
+                    <div class="text-center py-8 text-gray-500">
+                        <i class="fas fa-shopping-basket text-4xl mb-4 text-gray-300"></i>
+                        <p>Tu carrito está vacío</p>
+                    </div>
+                </div>
+                <div class="border-t pt-4 mt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-bold text-gray-700">Total:</span>
+                        <span id="cart-total" class="text-2xl font-bold text-orange-600">$0</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-orange-600 text-white py-4 rounded-xl font-bold hover:bg-orange-700 transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        Pedir por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 text-center">Nuestras Últimas Novedades</h2>
+        <p class="text-lg md:text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            ¡Siempre innovando para ti! Descubre los productos más recientes y las creaciones exclusivas que hemos horneado con pasión.
+        </p>
+
+        <!-- Grid de Nuevos Productos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="grid-novedades">
+            
+            <!-- Novedad 1: Cheesecake de Frutos Rojos -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVseN88_O8mW1a3zwwpreQYmQo956pCJthWw&s" class="w-full h-56 object-cover" alt="Cheesecake de Frutos Rojos">
+                <div class="p-5">
+                    <span class="text-purple-500 text-xs font-bold uppercase">Repostería</span>
+                    <h3 class="text-xl font-bold text-gray-800">Cheesecake de Frutos Rojos</h3>
+                    <p class="text-gray-600 text-sm mt-2">Cremoso y refrescante, con una capa de mermelada casera.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$32.000</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novedad 2: Sándwich de Pastrami Artesanal -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSb8mhSMqy0UP9aX7HJEVVlgmSckv9CnUAg&s" class="w-full h-56 object-cover" alt="Sándwich de Pastrami Artesanal">
+                <div class="p-5">
+                    <span class="text-blue-500 text-xs font-bold uppercase">Salados</span>
+                    <h3 class="text-xl font-bold text-gray-800">Sándwich de Pastrami Artesanal</h3>
+                    <p class="text-gray-600 text-sm mt-2">Pan de centeno, pastrami ahumado, pepinillos y mostaza dijon.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$18.500</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novedad 3: Rollos de Canela Glaseados -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://cdn0.recetasgratis.net/es/posts/6/9/9/rollos_de_canela_con_glaseado_55996_orig.jpg" class="w-full h-56 object-cover" alt="Rollos de Canela Glaseados">
+                <div class="p-5">
+                    <span class="text-yellow-500 text-xs font-bold uppercase">Desayunos</span>
+                    <h3 class="text-xl font-bold text-gray-800">Rollos de Canela Glaseados</h3>
+                    <p class="text-gray-600 text-sm mt-2">Suaves, aromáticos y con el toque perfecto de glaseado de queso crema.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$9.000</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novedad 4: Galletas de Avena y Chispas de Chocolate -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTA--bwVLsaUwMqJXPsRZY8SyCA15ehAAoVQ&s" class="w-full h-56 object-cover" alt="Galletas de Avena y Chispas de Chocolate">
+                <div class="p-5">
+                    <span class="text-green-500 text-xs font-bold uppercase">Snacks</span>
+                    <h3 class="text-xl font-bold text-gray-800">Galletas de Avena y Chocolate</h3>
+                    <p class="text-gray-600 text-sm mt-2">Crujientes por fuera, suaves por dentro y llenas de sabor.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$5.500</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novedad 5: Tarta Salada de Espinacas y Queso Feta -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOuMqs1qJBPjF1WxZyNowyiQdWJTBHlQBPjg&s" class="w-full h-56 object-cover" alt="Tarta Salada de Espinacas y Queso Feta">
+                <div class="p-5">
+                    <span class="text-red-500 text-xs font-bold uppercase">Salados</span>
+                    <h3 class="text-xl font-bold text-gray-800">Tarta Salada de Espinacas y Feta</h3>
+                    <p class="text-gray-600 text-sm mt-2">Una opción saludable y deliciosa para cualquier momento del día.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$21.000</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novedad 6: Bizcochitos de Naranja y Cardamomo -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 product-item">
+                <img src="https://www.slofoodgroup.com/cdn/shop/articles/orange-cardamom-loaf-cake-177644_1800x.jpg?v=1639943894" class="w-full h-56 object-cover" alt="Bizcochitos de Naranja y Cardamomo">
+                <div class="p-5">
+                    <span class="text-orange-500 text-xs font-bold uppercase">Repostería</span>
+                    <h3 class="text-xl font-bold text-gray-800">Bizcochitos de Naranja y Cardamomo</h3>
+                    <p class="text-gray-600 text-sm mt-2">Pequeños placeres con un toque cítrico y exótico.</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-2xl font-bold text-orange-600">$7.800</span>
+                        <button class="add-to-cart bg-green-500 p-2 rounded-full text-white hover:bg-green-600 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-gray-500">© 2026 El Bazar De Al Frente. Hecho con sabor.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-orange-600 text-2xl transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
