@@ -9,15 +9,16 @@ El BazarDeAlLado es una plataforma web diseñada para digitalizar y potenciar la
 *   **Diseño Responsivo:** Optimizado para dispositivos móviles, tablets y computadoras de escritorio.
 *   **Buscador Inteligente:** Filtros por categorías y búsqueda por palabras clave para facilitar la navegación.
 *   **Panel de Administración:** Estadísticas básicas de ventas y gestión de estados de pedidos.
+*   **API REST:** Endpoints para obtener productos (GET /productos y GET /productos/:id).
 
 ## 🛠️ Tecnologías Utilizadas
 
 Este proyecto ha sido construido utilizando las siguientes tecnologías:
 
-*   **Frontend:** React / Vue.js (ajustar según corresponda) y CSS3 con Tailwind CSS.
-*   **Backend:** Node.js con Express.
-*   **Base de Datos:** MongoDB / PostgreSQL.
-*   **Autenticación:** Firebase Auth o Auth0.
+*   **Frontend:** HTML5, CSS3 y JavaScript vanilla.
+*   **Backend:** Node.js con Express.js.
+*   **Logging:** Winston para registros de eventos.
+*   **Despliegue:** Railway (plataforma en la nube).
 
 ## 📦 Instalación
 
@@ -60,7 +61,23 @@ npm run dev
 4.  Sube los cambios a tu rama (`git push origin feature/NuevaMejora`).
 5.  Abre un Pull Request.
 
-## 📄 Licencia
+## � Despliegue en Railway
+
+Este proyecto está configurado para desplegarse fácilmente en [Railway](https://railway.com), una plataforma en la nube.
+
+### Pasos para desplegar:
+
+1. **Regístrate en Railway**: Ve a [railway.com](https://railway.com) y crea una cuenta (puedes usar GitHub para login).
+2. **Conecta tu repositorio**: En el dashboard de Railway, haz clic en "New Project" > "Deploy from GitHub Repo" > Selecciona `ElBazarDelAlLado`.
+3. **Despliega**: Railway detectará automáticamente que es un proyecto Node.js y lo desplegará. El puerto se configura automáticamente via `process.env.PORT`.
+4. **Accede a tu app**: Una vez desplegado, obtendrás una URL como `https://tu-proyecto.up.railway.app`. El sitio web estará en la raíz, y la API en `/productos`.
+5. **Monitoreo**: Revisa logs en tiempo real en el dashboard de Railway.
+
+### Notas:
+- El proyecto incluye un archivo `products.json` con datos de ejemplo. Para producción, considera agregar una base de datos.
+- Si necesitas variables de entorno, configúralas en Railway (ej. para API keys).
+
+## �📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
