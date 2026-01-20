@@ -1,0 +1,26 @@
+{
+  "name": "mibazardealfrente",
+  "version": "1.0.0",
+  "description": "El BazarDeAlLado es una plataforma web diseñada para digitalizar y potenciar las pequeñas y medianas empresas (PYMES). Su objetivo principal es ofrecer una interfaz intuitiva donde los negocios locales puedan gestionar su catálogo de productos, recibir pedidos y conectar de manera eficiente con sus clientes del vecindario.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidProgramer404/ElBazarDelAlLado.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DavidProgramer404/ElBazarDelAlLado/issues"
+  },
+  "homepage": "https://github.com/DavidProgramer404/ElBazarDelAlLado#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "winston": "^3.19.0"
+  }
+}

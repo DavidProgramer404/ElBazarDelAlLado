@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Producto 1",
+    "precio": 15000,
+    "descripcion": "Descripción del producto 1. Es un excelente producto para...",
+    "imagen": "assets/img/galeria/producto1.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Producto 2",
+    "precio": 25000,
+    "descripcion": "Descripción del producto 2. Ideal para...",
+    "imagen": "assets/img/galeria/producto2.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Producto 3",
+    "precio": 10000,
+    "descripcion": "Descripción del producto 3. Perfecto para...",
+    "imagen": "assets/img/galeria/producto3.jpg"
+  }
+]
